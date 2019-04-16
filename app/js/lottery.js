@@ -3,6 +3,7 @@ import Base from './lottery/base.js'
 import Timer from './lottery/timer.js'
 import Calculate from './lottery/calculate.js'
 import Interface from './lottery/interface.js'
+import newDate from './lottery/test.js'
 import $ from 'jquery'
 
 const copyProperties = function (target, source) {
@@ -23,7 +24,7 @@ const mix = function (...mixins) {
   return Mix
 }
 
-class Lottery extends mix(Base, Calculate, Interface, Timer) {
+class Lottery extends mix(Base, Calculate, Interface, Timer,newDate) {
   constructor (name = 'syy', cname = '11选5', issue = '**', state = '**') {
     super()
     this.name = name
@@ -71,9 +72,11 @@ class Lottery extends mix(Base, Calculate, Interface, Timer) {
 
           })
         }, 500)
+
       })
     })
   }
+  
 
   /**
    * [initEvent 初始化事件]
@@ -86,6 +89,8 @@ class Lottery extends mix(Base, Calculate, Interface, Timer) {
     $('#confirm_sel_code').on('click', self.addCode.bind(self))
     $('.dxjo').on('click', 'li', self.assistHandle.bind(self))
     $('.qkmethod').on('click', '.btn-middle', self.getRandomCode.bind(self))
+
+    console.log('22-', self.demo1(' sd nks d f'));
   }
 }
 
